@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Payment.css'
 import CheckoutProduct from "./CheckoutProduct";
-import {Link, useHistory} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useStateValue} from "./StateProvider";
 import {CardElement, useElements, useStripe} from "@stripe/react-stripe-js";
 import {getBasketTotal} from "./reducer";
@@ -13,7 +13,7 @@ import {db} from "./firebase";
 function Payment() {
 
     const [{basket, user}, dispatch] = useStateValue();
-    const history = useHistory();
+    const history = useNavigate();
 
     const stripe = useStripe();
     const elements = useElements();
